@@ -58,7 +58,11 @@ public class UserService {
 		
 		try {
 			
-			User entity = userRepository.getOne(id);
+			//User entity = userRepository.findById(id);
+			
+			Optional<User> optEntity = userRepository.findById(id);
+			
+			User entity = optEntity.get();
 			
 			updateData(entity, obj);
 			
